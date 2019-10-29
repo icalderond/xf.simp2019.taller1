@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="xf.simp2019.mvvm.App" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:model="clr-namespace:xf.simp2019.mvvm.Models"
+    mc:Ignorable="d">
+    <Application.Resources>
+        <x:String x:Key="saludo">Hola Xamarin</x:String>
+        <!--  Esto es un comentario  -->
+        <Color x:Key="TituloColor">#000</Color>
+        <x:String x:Key="MiNombre">Israel Calderón</x:String>
+
+        <DataTemplate x:Key="NoticiasTemplate">
+            <ViewCell>
+                <StackLayout Margin="0,15">
+                    <Image
+                        Source="{Binding Imagen}"
+                        Aspect="AspectFit" BackgroundColor="SkyBlue" />
+                    <Label
+                        Text="{Binding Titulo}"
+                        FontSize="Large" FontAttributes="Bold" />
+                    <Label
+                        Text="{Binding Descripcion}"
+                        FontSize="Body" />
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
