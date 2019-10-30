@@ -5,27 +5,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:viewmodel="clr-namespace:xf.simp2019.mvvm.ViewModels"
-             x:Class="xf.simp2019.mvvm.Views.ListaNoticias">
+             x:Class="xf.simp2019.mvvm.Views.ListaNoticias"
+             Title="Canal de noticias">
     <ContentPage.Resources>
         <viewmodel:ListaNoticiasViewModel x:Key="listaNoticiasViewModel"/>
     </ContentPage.Resources>
     <ContentPage.Content>
-         <Grid BackgroundColor="White" BindingContext="{StaticResource listaNoticiasViewModel}">
+        <Grid BackgroundColor="White" BindingContext="{StaticResource listaNoticiasViewModel}">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackLayout
                 Grid.Row="0" Padding="15,10,15,0" Orientation="Vertical">
                 <Label
-                    Text="Canal de noticias" FontSize="Title"
-                    TextColor="{StaticResource TituloColor}" />
-                <Label
-                    Text="Este es un canal de noticias en App" FontSize="Body" />
-                <Label Text="{StaticResource saludo}" />
+                    Text="Este es un canal de noticias en App" FontSize="" />
             </StackLayout>
+            <Button Grid.Row="1" Text="Agregar nueva noticia"
+                     Command="{Binding CrearNoticiaCommand}">
+
+            </Button>
             <ListView
-                Grid.Row="1" Margin="15,10,15,0"
+                Grid.Row="2" Margin="15,10,15,0"
                 ItemsSource="{Binding Noticias}"
                 ItemTemplate="{StaticResource NoticiasTemplate}"
                 SeparatorVisibility="None"

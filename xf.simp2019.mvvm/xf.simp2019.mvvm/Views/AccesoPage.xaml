@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="xf.simp2019.mvvm.Views.AccesoPage" 
+    xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:viewmodel="clr-namespace:xf.simp2019.mvvm.ViewModels"
+    mc:Ignorable="d" Title="Pagina de acceso">
+    <ContentPage.Resources>
+        <viewmodel:AccesoViewModel x:Key="accesoViewModel" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="Center"
+            BindingContext="{StaticResource accesoViewModel}"
+            Margin="15,0">
+            <Entry x:Name="entryUsuario"
+                d:Text="icalderond" Placeholder="Usuario"
+                Text="{Binding Usuario}" />
+            <Entry
+                d:Text="password" Placeholder="Clave" IsPassword="True"
+                Text="{Binding Clave}" />
+            <Button Text="Acceder" 
+                    Command="{Binding AccederCommand}"
+                    CommandParameter="{Binding Source={x:Reference entryUsuario}, Path=Text}">
+                <Button.Triggers>
+                     <DataTrigger TargetType="Button"
+                                  Binding="{Binding Source={x:Reference entryUsuario},Path=Text.Length}" Value="0">
+                         <Setter Property="IsVisible" Value="False"/>
+                     </DataTrigger>
+                 </Button.Triggers>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

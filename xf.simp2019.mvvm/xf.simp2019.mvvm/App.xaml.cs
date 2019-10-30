@@ -15,7 +15,7 @@ namespace xf.simp2019.mvvm
         {
             InitializeComponent();
 
-            MainPage = new ListaNoticias();
+            MainPage = new NavigationPage(new AccesoPage());
         }
 
         protected override void OnStart()
